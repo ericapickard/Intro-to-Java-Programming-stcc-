@@ -1,0 +1,46 @@
+/*
+ * This program will ask the user to enter the pay rate and hours worked
+ * The program will calculate the Gross pay and net pay
+ * Erica Pickard
+ * 7/18/2017
+ */
+import java.util.Scanner;
+public class GrossPay {
+
+	public static void main(String[] args) {
+		double OTRate;
+		double HoursWorked;
+		double RegularRate;
+		double GrossPay, NetPay, OverTime = 0;
+		// Enter the number of hours worked
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("How many hours did you work this week? ");
+		HoursWorked = keyboard.nextDouble();
+		keyboard.close();
+		
+		//Get the pay rate
+		System.out.println("What is your pay rate? ");
+		RegularRate = keyboard.nextDouble();
+		
+		//Calculate the pay
+		if(HoursWorked <= 40)
+			GrossPay = RegularRate * HoursWorked;
+		else
+			{
+			OTRate = 1.5*RegularRate;
+			OverTime = OTRate*(HoursWorked-40);
+			GrossPay = RegularRate*40 + OverTime;
+			}
+		
+		double Tax = GrossPay * 0.25;
+		NetPay = GrossPay - Tax;
+		
+		//Print everything
+		System.out.println("Gross Pay:  $" + GrossPay);
+		System.out.println("Taxes:      $" + Tax);
+		System.out.println("Net Pay:    $" + NetPay);
+		System.out.println("Overtime:   $" + OverTime);
+		keyboard.close();
+	}
+
+}
