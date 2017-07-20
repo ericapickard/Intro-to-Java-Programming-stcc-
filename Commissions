@@ -1,0 +1,57 @@
+/*
+ * Calculate the commission on a car
+ * Erica Pickard
+ * July 18, 2017
+ */
+import javax.swing.JOptionPane;
+public class Commission {
+
+	public static void main(String[] args) {
+		// Get Type of Car
+		String STG = "1) New\n2) Certified\n3) Used\n";
+		String PreownedorNew = JOptionPane.showInputDialog(STG);
+		int Car = Integer.parseInt(PreownedorNew);
+		double Comm = 300;
+		
+		if ((Car <1)||(Car > 3))
+			JOptionPane.showMessageDialog(null,"Invalid choice of car");
+		else
+		{
+		//Get base price for the car
+		double BasePrice;
+		String BP = JOptionPane.showInputDialog("Enter the Base Price of the car");
+		BasePrice = Double.parseDouble(BP);
+		
+		
+		//Get the selling price
+		String SP = JOptionPane.showInputDialog("Enter the selling price");
+		double SellingPrice = Double.parseDouble(SP);
+		
+		switch(Car)
+		{
+		case 1: 
+			Comm = 0.15 * (SellingPrice - BasePrice);
+			if (Comm < 300)
+				Comm = 300;
+			break;
+		
+		case 2: 
+			Comm = 0.20 * (SellingPrice - BasePrice);
+			if (Comm < 300)
+				Comm = 300;
+			break;
+			
+		case 3:
+			Comm = 0.25 * (SellingPrice - BasePrice);
+			if (Comm < 300)
+				Comm = 300;
+			break;
+			
+		default: JOptionPane.showMessageDialog(null,"Invalid choice of car");		
+		}
+		JOptionPane.showMessageDialog(null,"Your Commission is $"+Comm);
+		}
+
+	}
+
+}
