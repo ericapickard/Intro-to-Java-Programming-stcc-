@@ -1,0 +1,130 @@
+/*
+ * This program will calculate the federal income tax
+ * Erica Pickard
+ * July 18, 2017
+ */
+import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+public class IncomeTax {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		double Tax = 0;
+		//List Filling status
+		String STG = "\n\n" +
+		"1) Single \n" +
+		"2) Married Filing Jointly\n" +
+		"3) Maried Filing Seperatly\n" +
+		"4) Head of Household\n";
+		System.out.println(STG);
+		
+		//Prompt the user to enter a choice
+		System.out.println("------------------------------\n");
+		System.out.println("Enter your filing status");
+		int Status = input.nextInt();
+		
+		if((Status <1)||(Status>4))
+			System.out.println("Invalid Filing Status");
+		else
+		{
+			// Get income
+			System.out.println("Enter your taxable income ");
+			double Income = input.nextDouble();
+			
+			switch (Status)
+			{
+			case 1:
+			{
+				if(Income <= 8350)
+					Tax = 0.10 * Income;
+				else
+					if (Income <= 33950)
+						Tax = 0.10*8350 + 0.15*(Income - 8350);
+					else
+						if (Income <= 82250)
+							Tax = 0.10*8350 + 0.15*(33950-8350)+0.25*(Income-33950);
+						else
+							if (Income <= 171550)
+								Tax = 0.10*8350 + 0.15*(33950-8350)+0.25*(82250-33950)+0.28*(Income-82250);
+							else
+								if (Income <= 372950)
+									Tax = 0.10*8350 + 0.15*(33950-8350)+0.25*(82250-33950)+0.28*(171550-82250)+0.33*(Income -171550);
+								else
+									Tax = 0.10*8350 + 0.15*(33950-8350)+0.25*(82250-33950)+0.28*(171550-82250)+0.33*(372950 -171550)+0.35*(Income-372950);
+								break;
+			}		
+				
+								
+			case 2:
+			{
+				if(Income <= 8350)
+					Tax = 0.10 * Income;
+				else
+					if (Income <= 33950)
+						Tax = 0.10*8350 + 0.15*(Income - 8350);
+					else
+						if (Income <= 82250)
+							Tax = 0.10*8350 + 0.15*(33950-8350)+0.25*(Income-33950);
+						else
+							if (Income <= 171550)
+								Tax = 0.10*8350 + 0.15*(33950-8350)+0.25*(82250-33950)+0.28*(Income-82250);
+							else
+								if (Income <= 372950)
+									Tax = 0.10*8350 + 0.15*(33950-8350)+0.25*(82250-33950)+0.28*(171550-82250)+0.33*(Income -171550);
+								else
+									Tax = 0.10*8350 + 0.15*(33950-8350)+0.25*(82250-33950)+0.28*(171550-82250)+0.33*(372950 -171550)+0.35*(Income-372950);
+								break;
+			}		
+									
+			case 3:
+			{
+				if(Income <= 8350)
+					Tax = 0.10 * Income;
+				else
+					if (Income <= 33950)
+						Tax = 0.10*8350 + 0.15*(Income - 8350);
+					else
+						if (Income <= 82250)
+							Tax = 0.10*8350 + 0.15*(33950-8350)+0.25*(Income-33950);
+						else
+							if (Income <= 171550)
+								Tax = 0.10*8350 + 0.15*(33950-8350)+0.25*(82250-33950)+0.28*(Income-82250);
+							else
+								if (Income <= 372950)
+									Tax = 0.10*8350 + 0.15*(33950-8350)+0.25*(82250-33950)+0.28*(171550-82250)+0.33*(Income -171550);
+								else
+									Tax = 0.10*8350 + 0.15*(33950-8350)+0.25*(82250-33950)+0.28*(171550-82250)+0.33*(372950 -171550)+0.35*(Income-372950);
+								break;
+			}		
+								
+			case 4:
+			{
+				if(Income <= 8350)
+					Tax = 0.10 * Income;
+				else
+					if (Income <= 33950)
+						Tax = 0.10*8350 + 0.15*(Income - 8350);
+					else
+						if (Income <= 82250)
+							Tax = 0.10*8350 + 0.15*(33950-8350)+0.25*(Income-33950);
+						else
+							if (Income <= 171550)
+								Tax = 0.10*8350 + 0.15*(33950-8350)+0.25*(82250-33950)+0.28*(Income-82250);
+							else
+								if (Income <= 372950)
+									Tax = 0.10*8350 + 0.15*(33950-8350)+0.25*(82250-33950)+0.28*(171550-82250)+0.33*(Income -171550);
+								else
+									Tax = 0.10*8350 + 0.15*(33950-8350)+0.25*(82250-33950)+0.28*(171550-82250)+0.33*(372950 -171550)+0.35*(Income-372950);
+								break;
+			}		
+									
+			default: System.out.println("invalid filing status");					
+								
+			}				
+			System.out.println("Taxes = $" + Tax);		
+		}
+	}
+
+	}
