@@ -1,0 +1,52 @@
+/*
+* This program will calc the monthly payment on a loan
+ * erica pickard
+ * July13
+ */
+import javax.swing.JOptionPane;
+public class Loaper {
+
+	public static void main(String[] args) {
+		// get loan amount
+		String LAmountTXT = JOptionPane.showInputDialog("Enter the loan amount");
+		//convert to text to number
+		double LAmount = Double.parseDouble(LAmountTXT);
+		// get rate
+		String RateTXT = JOptionPane.showInputDialog("Enter the Interest Rate/n EX. 4.5% (don't type percent sign)");
+		//convert to text to number
+				double Rate = Double.parseDouble(RateTXT);
+		Rate = Rate/100;
+		// get years
+				String YearsTXT = JOptionPane.showInputDialog("Enter the number of years)");
+				//convert to text to number
+						double Years = Double.parseDouble(YearsTXT);
+		//calc loan amount
+		double NumOfPayments, MRate;
+		NumOfPayments =Years * 12;
+		MRate = Rate/12;
+		
+		double Temp1, Temp2, Temp3, Temp4, Temp5;
+		Temp1 = 1 + MRate;
+		Temp2 = Math.pow(Temp1,NumOfPayments);
+		Temp3 = 1/Temp2;
+		Temp4 = 1 - Temp3;
+		Temp5 = MRate/Temp4;
+		
+		double Payment = LAmount * Temp5;
+		double AmountPaid = Payment * NumOfPayments;
+		double IntAmount = AmountPaid - LAmount;
+		
+		//show results
+		String Message = "Loan Amount: $" + LAmount + 
+				"\n Interest Rate" + (Rate * 100) +"%" + 
+				"\nNumber of years: " + Years +
+				"\n----------------------------------" +
+				"\nMonthly Payment: $" + (int)(Payment * 100)/100.0 + 
+				"\nTotal Payments: $" + (int)(AmountPaid * 100)/100.0 +
+				"\nTotal Interest: $" + (int)(IntAmount * 1000)/100.0;
+		JOptionPane.showMessageDialog(null, Message);
+	}
+
+}
+
+
