@@ -1,0 +1,42 @@
+/*
+* This program will calculate the Wind-Chill Temperature outside
+* The user will input the temperature and the wind speed
+* Erica Pickard
+* 7/18/2017
+*/
+import javax.swing.JOptionPane;
+public class WindChill {
+
+	public static void main(String[] args) {
+		//Give information to user
+			String TempTXT = JOptionPane.showInputDialog("Enter the outside temperature in fahrenheit\n" + "between -58 and 41 degrees:");
+		//convert to text
+			double Temp = Double.parseDouble(TempTXT);
+		//Give information to user
+		String WindTXT = JOptionPane.showInputDialog("Enter the wind speed in miles per an hour\n" + "Speed must be above 2 mph.");
+		// convert to text
+			double Wind = Double.parseDouble(WindTXT);
+	if ((Wind < 2) && ((Temp < -58 || Temp > 41))) {
+				JOptionPane.showMessageDialog(null, "The Temperature and the Wind Speed you have entered is invalid, please refresh.");
+			}
+	else
+	if (Temp < -58 || Temp > 41) {
+		JOptionPane.showMessageDialog(null, "The temperature you have entered is invalid, please refresh.");
+	}
+	else
+	if (Wind < 2) {
+		JOptionPane.showMessageDialog(null, "The Wind Speed you have entered is invalid, please refresh.");
+	}
+	else {
+		//Use formula to calc the coldness
+		double chillTemp = 35.74 + (0.6215 * Temp) - (35.75 * Math.pow(Wind,
+				.16)) + (0.4275 * Temp * Math.pow(Wind, 0.16));
+		//format decimals
+		chillTemp = (int) (chillTemp * 100000) / 100000.0;
+	//display results
+	JOptionPane.showMessageDialog(null, "The Wind-Chill Temperature outside is\n" + chillTemp);
+	
+	}
+	}
+}
+
