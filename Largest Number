@@ -1,0 +1,35 @@
+/* 
+ * This program will find the largest number out of three numbers
+ * Erica Pickard
+ * July 13
+ */
+import javax.swing.JOptionPane;
+public class LargestNumber {
+
+	public static void main(String[] args) {
+		// Get three numbers
+		double N1, N2, N3, Answer = -11222210;
+		
+		String N1Txt = JOptionPane.showInputDialog("Enter Number 1");
+		N1 = Double.parseDouble(N1Txt);
+		String N2Txt = JOptionPane.showInputDialog("Enter Number 2");
+		N2 = Double.parseDouble(N2Txt);
+		String N3Txt = JOptionPane.showInputDialog("Enter Number 3");
+		N3 = Double.parseDouble(N3Txt);
+		
+		if ((N1 >= N2)&&(N1 >= N3))
+			Answer = N1;
+		else
+		if ((N2 >= N1)&&(N2 >= N3))
+			Answer = N2;
+		else
+		if ((N3 >= N2)&&(N3 >= N1))
+			Answer = N3;
+		System.out.println("The largest number of a list of "+N1 +", "+N2 +", " +N3 +"is "+ Answer);
+		
+
+	}
+
+}
+
+
