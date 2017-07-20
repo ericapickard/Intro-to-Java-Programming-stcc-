@@ -1,0 +1,37 @@
+/*
+ * This program will calc and compile the interest on a bank account
+ * Uses the initial amount, tax, tax rate, and years
+ * Erica Pickard
+ * July 13, 2017
+ */
+import javax.swing.JOptionPane;
+public class BankTax {
+
+	public static void main(String[] args) {
+		// Variables Declaration
+		double Initial, Tax, TaxRate, Price, Years;
+		TaxRate = 0.0425;
+		
+		//Get intial amount
+		String InitialPrice = JOptionPane.showInputDialog("Enter the initial amount");
+		Initial = Byte.parseByte(InitialPrice);		
+		//Get years
+		String TotalYears = JOptionPane.showInputDialog("Enter the years");
+		Years = Byte.parseByte(TotalYears);
+		
+		
+		//Calculate price and tax
+		Tax = (TaxRate * Initial) * Years;
+		Price = Initial + Tax;
+		
+		//Display output
+		String Message = "Interest in bank\n Initial Amount = $"+Initial+
+				"\n Total Years = "+Years +"\n Interest added on = $" + Tax +"\n Total Bank Amount with an interest of $4.25 = $"+Price;
+		JOptionPane.showMessageDialog(null,Message);
+		
+
+	}
+
+}
+
+
