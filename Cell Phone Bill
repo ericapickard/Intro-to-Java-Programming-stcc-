@@ -1,0 +1,80 @@
+package hw;
+
+/*
+ * A Wireless service provider has three different packages for its customers:
+
+* Package A:  For $29.99 per month 2GB of data is provided. Additional data is $10.00 per GB.
+* Package B: For $39.99 per month 4GB of data is provided. Additional data is $5.00 per GB.
+* Package C: For $49.99 per month unlimited data is provided.
+
+
+* This program will calculate a customer’s monthly bill. 
+* It will ask which package the customer has purchased and how many GB of data was used. It should then display the total amount due.  The program should recommend which package is the best for the customer.
+* Erica Pickard
+* July 20, 2017
+ */
+
+import javax.swing.JOptionPane;
+
+public class cellbill {
+
+	public static void main(String[] args) {
+		double data;
+		double pack;
+		
+		Double bill = (double) 0;
+		// Have user choose package
+		String packTXT = JOptionPane.showInputDialog("Please enter which package you have choosen (please enter the number of your package. i.e. 1, 2, or 3)" + "\nPackage A (ENTER 1):  For $29.99 per month 2GB of data is provided. Additional data is $10.00 per GB." 
+		+ "\nPackage B (ENTER 2): For $39.99 per month 4GB of data is provided. Additional data is $5.00 per GB." 
+				+ "\nPackage C ENTER 3): For $49.99 per month unlimited data is provided.");
+		pack = Double.parseDouble(packTXT);
+		
+		// Have user enter amount of data used
+		String dataTXT = JOptionPane.showInputDialog("Please enter the amount of data you have used in GB" + "\n only enter numbers ex. 1 GB would be entered as 1" + "\nex. 520 MB would be entered as 0.62 ");
+		data = Double.parseDouble(dataTXT);
+		// Of-else variables to cancel out invalid answers
+	if (pack < 1 || pack > 3){
+		bill = 0 + data;
+		JOptionPane.showMessageDialog(null, "Your package value is invalid");
+	}
+		
+		 if (data < 0.1 || data > 50){
+		bill = 0 + data;
+		JOptionPane.showMessageDialog(null, "Your data value is invalid");
+		 }
+	
+		
+		// If-else variables to get the answers 
+		else
+		if((pack == 1) && (data <= 2)){
+	bill = 29.99;
+	 JOptionPane.showMessageDialog(null, "Your cellphone bill is $" + bill);
+		}
+	
+	else if ((pack == 1)&& (data > 2)){
+	bill = 29.99 + 10 * data;
+	 JOptionPane.showMessageDialog(null, "Your cellphone bill is $" + bill);
+	}
+	 else
+
+	if ((pack == 2)&& (data <= 4)){
+		bill = 39.99;
+		 JOptionPane.showMessageDialog(null, "Your cellphone bill is $" + bill);
+	}
+	else if ((pack == 2)&& (data > 4)){
+	bill = 29.99 + 10 * data;
+	 JOptionPane.showMessageDialog(null, "Your cellphone bill is $" + bill);
+	}
+	 else
+	 if ((pack == 3)&& (data <= 50)){
+	bill = 49.99;
+	 JOptionPane.showMessageDialog(null, "Your cellphone bill is $" + bill);
+	 }
+	else if ((pack == 3)&& (data > 50)){
+	JOptionPane.showInputDialog(null, "This value is invalid, please try again.");
+	
+		}
+	
+		}
+	}
+
