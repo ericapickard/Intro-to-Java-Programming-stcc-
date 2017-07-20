@@ -1,0 +1,54 @@
+/*
+ * This program will calc the student's grade in this java class
+ * Teacher will enter hw average, midterm, and final scores
+ * Erica Pickard
+ * July 13, 2017
+ */
+import javax.swing.JOptionPane;
+public class ClassGrade {
+
+	public static void main(String[] args) {
+		//Get scores
+		String HwT = JOptionPane.showInputDialog("Enter Homework Average");
+		double Hw = Double.parseDouble(HwT);
+		String MidT = JOptionPane.showInputDialog("Enter Midterm Grade");
+		double Mid = Double.parseDouble(MidT);
+		String FinT = JOptionPane.showInputDialog("Enter Final Grade");
+		double Fin = Double.parseDouble(FinT);
+		//Calc average
+		double Avg = Hw*0.40 + Mid*0.30 + Fin*0.30;
+		//Get letter grade
+		char Grade;
+		if ((Avg >= 90))
+			Grade = 'a';
+		else
+		if ((Avg >= 80))
+			Grade = 'b';
+		else
+		if ((Avg >= 70))
+			Grade = 'c';
+		else
+		if ((Avg >= 60))
+					Grade = 'd';
+		else	
+		Grade = 'f';
+	//for grade f
+	String Message1 = "Sorry - you did not pass the course\n Please register for the course again";	
+	//for grade d
+	String Message2 = "You passed the course with a D grade\n You will not be able to transfer the course";
+	//for grade higher than d
+	String Message3 = "Congrats!\n Your grade is "+ Grade;	
+	if ((Grade =='a')||(Grade == 'b')||(Grade == 'c'))
+		JOptionPane.showMessageDialog(null, Message3);
+	else
+	if(Grade=='f')
+		JOptionPane.showMessageDialog(null, Message1);
+	else
+	if(Grade=='e')
+		JOptionPane.showMessageDialog(null, Message2);
+
+	}
+
+}
+
+
